@@ -1,22 +1,26 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { syncSettingsToChrome, loadSettingsFromChrome } from "./syncSettings";
 
 const Persist: React.FC = () => {
   const [error, setError] = React.useState(false);
-  const [persisted, setPersisted] = React.useState(true); // Hide until we know otherwise
 
-  React.useEffect(() => {
-    if (navigator.storage) navigator.storage.persisted().then(setPersisted);
-  }, []);
+  const handleSync = async () => {
+    setError(false);
+    try {
+      await syncSettingsToChrome();
+    } catch (e) {
+      setError(true);
+    }
+  };
 
-  if (persisted) return null;
-
-  const handleClick = () => {
-    navigator.storage
-      .persist()
-      .then((persisted) =>
-        persisted ? setPersisted(persisted) : setError(true),
-      );
+  const handleLoad = async () => {
+    setError(false);
+    try {
+      await loadSettingsFromChrome();
+    } catch (e) {
+      setError(true);
+    }
   };
 
   return (
@@ -42,13 +46,22 @@ const Persist: React.FC = () => {
         description="Persist Settings error"
       /></p>
       ) : (
-        <button className="button button--primary" onClick={handleClick}>
+        <>
+        <button className="button button--primary" onClick={handleSync}>
           <FormattedMessage
           id="settings.persist.button"
           defaultMessage="Persist Settings"
           description="Persist Settings button"
         />
         </button>
+        <button className="button button--primary" style={{marginLeft:8}} onClick={handleLoad}>
+          <FormattedMessage
+          id="settings.load.button"
+          defaultMessage="Load from Sync"
+          description="Load from Sync button"
+        />
+        </button>
+        </>
       )}
     </div>
   );

@@ -131,7 +131,7 @@ export const cache = DB.init<Record<string, unknown | undefined>>();
 export const dbStorage =
   BUILD_TARGET === "web"
     ? Storage.indexeddb(db, "tabliss/config")
-    : Storage.extension(db, "tabliss/config", "sync");
+    : Storage.extension(db, "tabliss/config", "local");
 
 export const cacheStorage =
   BUILD_TARGET === "firefox"
