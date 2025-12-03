@@ -40,6 +40,8 @@ If you were a contributor to the original repo or have ideas for improvements, f
 
 ## Brief Overview of a Few Improvements Over Tabliss
 
+This list is by no means exhaustive. TablissNG includes many other tweaks, quality-of-life improvements, and features not detailed here.
+
 - Customization
   - Support for custom search engines and browser defaults
   - Many more style options in display/font settings (eg. scale, underline, text outline, custom css class)
