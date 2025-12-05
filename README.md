@@ -36,6 +36,10 @@ This repository is a maintained fork of Tabliss, originally a customizable new t
 
 If you were a contributor to the original repo or have ideas for improvements, feel free to open an issue or submit a pull request. Let’s keep Tabliss alive!
 
+### Looking for contribution ideas?
+
+Check out the [github project](https://github.com/users/BookCatKid/projects/3?query=sort%3Aupdated-desc+is%3Aopen) for a list of features that are wanted, but not yet implemented. Anything not in `in progress` is most likely free for you to work on!
+
 ---
 
 ## Brief Overview of a Few Improvements Over Tabliss
