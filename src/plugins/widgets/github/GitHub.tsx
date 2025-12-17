@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { GitHubCalendar } from "react-github-calendar";
+import GitHubCalendar from "react-github-calendar";
 import { useIntl } from "react-intl";
 import { useFormatMessages } from "../../../hooks/useFormatMessages";
 import { useTheme } from "../../../hooks/useTheme";
@@ -45,9 +45,9 @@ const GitHubCalendarWidget: FC<Props> = ({ data = defaultData }) => {
       }}
     >
       <GitHubCalendar
-        showColorLegend={data.showColorLegend}
-        showMonthLabels={data.showMonthLabels}
-        showTotalCount={data.showTotalCount}
+        hideColorLegend={!data.showColorLegend}
+        hideMonthLabels={!data.showMonthLabels}
+        hideTotalCount={!data.showTotalCount}
         username={data.username}
         labels={labels}
         colorScheme={isDark ? "dark" : "light"}
